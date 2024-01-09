@@ -12,8 +12,6 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import org.bson.types.Binary;
-
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @SuppressWarnings("serial")
 @Document(collection = "persons")
@@ -50,10 +48,10 @@ public class Person implements Serializable {
     private String date;
 
 //    @JsonProperty("img")
-    private Binary photo;
+    private String photo;
 
     @JsonProperty("mem")
-    private List<Binary> memories;
+    private List<String> memories;
 
     public Person() {
 	super();
@@ -210,19 +208,19 @@ public class Person implements Serializable {
 	this.date = date;
     }
 
-    public Binary getPhoto() {
+    public String getPhoto() {
 	return photo;
     }
 
-    public void setPhoto(Binary photo) {
+    public void setPhoto(String photo) {
 	this.photo = photo;
     }
 
-    public List<Binary> getMemories() {
+    public List<String> getMemories() {
         return memories;
     }
 
-    public void setMemories(List<Binary> memories) {
+    public void setMemories(List<String> memories) {
         this.memories = memories;
     }
 
