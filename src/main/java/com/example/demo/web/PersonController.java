@@ -34,6 +34,10 @@ public class PersonController {
 	return personService.getAllPersonsFiltered();
     }
 
+    /**
+     * @param person
+     * @return
+     */
     @PostMapping("/check")
     public Person checkPerson(@RequestBody Person person) {
 	return personService.getPersonByEmailAndPassword(person.getEmail(), person.getPassword());
@@ -44,12 +48,6 @@ public class PersonController {
         String mail = person.getEmail();
         return personService.getPersonByEmail(mail);
     }
-
-
-//    @GetMapping("/email/{email}")
-//    public Person getPersonByEmail(@PathVariable String email) {
-//	return personService.getPersonByEmail(email);
-//    }
 
     @PostMapping("/updatedb")
     public ResponseEntity<Person> updateDataBase(@RequestBody Person person) {

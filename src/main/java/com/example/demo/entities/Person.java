@@ -12,6 +12,10 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+/**
+ * @author CYTech Student
+ *
+ */
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @SuppressWarnings("serial")
 @Document(collection = "persons")
@@ -108,15 +112,7 @@ public class Person implements Serializable {
 	this.gender = gender;
 	this.email = email;
 	this.partner = new ArrayList<>();
-	this.memories = new ArrayList<>(); // assign a default value of null
-//	this.mother = mother;
-//	this.father = father;
-//	if (mother == null) {
-//	    this.mother = this.firstname + " " + this.lastname + " " + "Mother";
-//	}
-//	if (father == null) {
-//	    this.father = this.firstname + " " + this.lastname + " " + "Father";
-//	}
+	this.memories = new ArrayList<>(); 
 	this.date = date;
     }
 

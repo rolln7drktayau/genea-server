@@ -36,11 +36,12 @@ public class PersonService {
     public Person getPersonById(String id) {
 	return personRepository.findById(id).orElse(null);
     }
-    
+
     public Person updatePerson(Person personDetails) {
 	return personRepository.save(personDetails);
     }
 
+    // To Update many persons
     public Person updateDataBase(Person person) {
 	Person personToUpdate = new Person(person);
 	return updatePerson(personToUpdate);
@@ -55,7 +56,7 @@ public class PersonService {
     public Person getPersonByEmail(String email) {
 	return personRepository.findByEmail(email);
     }
-    
+
     public Person getPersonByEmailAndPassword(String email, String password) {
 	return personRepository.findByEmailAndPassword(email, password);
     }
