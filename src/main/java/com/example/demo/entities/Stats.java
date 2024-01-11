@@ -26,7 +26,7 @@ public class Stats implements Serializable {
     }
 
     public Stats(Stats stats) {
-	this.connections = stats.connections;
+	this.connections = stats.connections++;
 	this.males = stats.males;
 	this.females = stats.females;
 	this.memories = stats.memories;
