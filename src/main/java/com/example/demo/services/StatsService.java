@@ -16,22 +16,24 @@ public class StatsService {
 
     @Autowired
     private StatsRepository statsRepository;
-    
+
     public List<Stats> getStats() {
-	return statsRepository.findAll();
+        return statsRepository.findAll();
     }
 
     public Stats updateStats(Stats stats) {
-	return statsRepository.save(stats);
+        Stats toUpdate = statsRepository.findById(stats.getId()).orElse(null);
+        toUpdate = stats;
+        return statsRepository.save(toUpdate);
     }
-    
+
     @PostConstruct
     @Transactional
     public void init() {
-	if (statsRepository.count() == 0) {
-	    Stats basicStats = new Stats(0, 0, 0, 0);
-	    basicStats = statsRepository.save(basicStats);
-	}
+        if (statsRepository.count() == 0) {
+            Stats basicStats = new Stats();
+            basicStats = statsRepository.save(basicStats);
+        }
     }
 
 }

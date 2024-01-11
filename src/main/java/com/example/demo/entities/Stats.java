@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-@SuppressWarnings("serial")
+// @SuppressWarnings("serial")
 @Document(collection = "stats")
 public class Stats implements Serializable {
 
@@ -22,60 +22,61 @@ public class Stats implements Serializable {
     private int connections, males, females, memories;
 
     public Stats() {
-	super();
+        super();
     }
 
     public Stats(Stats stats) {
-	this.connections = stats.connections++;
-	this.males = stats.males;
-	this.females = stats.females;
-	this.memories = stats.memories;
+        this.connections = stats.connections;
+        this.males = stats.males;
+        this.females = stats.females;
+        this.memories = stats.memories;
     }
 
-    public Stats(int connections, int males, int females, int memories) {
-	this.connections = connections;
-	this.males = males;
-	this.females = females;
-	this.memories = memories;
+    public Stats(String id, int connections, int males, int females, int memories) {
+        this.id = id;
+        this.connections = connections;
+        this.males = males;
+        this.females = females;
+        this.memories = memories;
     }
 
     public String getId() {
-	return id;
+        return id;
     }
 
     public void setId(String id) {
-	this.id = id;
+        this.id = id;
     }
 
     public int getConnections() {
-	return connections;
+        return connections;
     }
 
     public void setConnections(int connections) {
-	this.connections = connections;
+        this.connections = connections;
     }
 
     public int getMales() {
-	return males;
+        return males;
     }
 
     public void setMales(int males) {
-	this.males = males;
+        this.males = males;
     }
 
     public int getFemales() {
-	return females;
+        return females;
     }
 
     public void setFemales(int females) {
-	this.females = females;
+        this.females = females;
     }
 
     public int getMemories() {
-	return memories;
+        return memories;
     }
 
     public void setMemories(int memories) {
-	this.memories = memories;
+        this.memories = memories;
     }
 }
